@@ -149,13 +149,13 @@ func (c *Client) Auth(key string, secret string) *Client {
 	return c
 }
 
-var httpDo = func(req *http.Request) (*http.Response, error) {
+var HTTPDo = func(req *http.Request) (*http.Response, error) {
 	return http.DefaultClient.Do(req)
 }
 
 // Do executes API request created by NewRequest method or custom *http.Request.
 func (c *Client) do(req *http.Request, v interface{}) (*Response, error) {
-	resp, err := httpDo(req)
+	resp, err := HTTPDo(req)
 
 	if err != nil {
 		return nil, err
