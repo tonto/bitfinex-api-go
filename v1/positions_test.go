@@ -9,7 +9,7 @@ import (
 )
 
 func TestPositions(t *testing.T) {
-	httpDo = func(req *http.Request) (*http.Response, error) {
+	HTTPDo = func(req *http.Request) (*http.Response, error) {
 		msg := `[
             {
                 "id":943715,
@@ -49,7 +49,7 @@ func TestPositions(t *testing.T) {
 }
 
 func TestPositionsWhenEmpty(t *testing.T) {
-	httpDo = func(req *http.Request) (*http.Response, error) {
+	HTTPDo = func(req *http.Request) (*http.Response, error) {
 		msg := `[{
             "id":943715,
             "symbol":"btcusd",
@@ -96,7 +96,7 @@ func TestPositionsWhenEmpty(t *testing.T) {
 
 func TestClaimPosition(t *testing.T) {
 
-	httpDo = func(req *http.Request) (*http.Response, error) {
+	HTTPDo = func(req *http.Request) (*http.Response, error) {
 		msg := `{
                 "id":943715,
                 "symbol":"btcusd",

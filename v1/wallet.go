@@ -27,7 +27,7 @@ func (c *WalletService) Transfer(amount float64, currency, from, to string) ([]T
 		"walletto":   to,
 	}
 
-	req, err := c.client.newAuthenticatedRequest("GET", "transfer", payload)
+	req, err := c.client.newAuthenticatedRequest("POST", "transfer", payload)
 
 	if err != nil {
 		return nil, err
@@ -56,7 +56,7 @@ func (c *WalletService) WithdrawCrypto(amount float64, currency, wallet, destina
 		"address":        destinationAddress,
 	}
 
-	req, err := c.client.newAuthenticatedRequest("GET", "withdraw", payload)
+	req, err := c.client.newAuthenticatedRequest("POST", "withdraw", payload)
 
 	if err != nil {
 		return nil, err
@@ -109,7 +109,7 @@ func (c *WalletService) WithdrawWire(amount float64, expressWire bool, wallet st
 		"intermediary_bank_swift":   intermediaryBank.SwiftCode,
 	}
 
-	req, err := c.client.newAuthenticatedRequest("GET", "withdraw", payload)
+	req, err := c.client.newAuthenticatedRequest("POST", "withdraw", payload)
 
 	if err != nil {
 		return nil, err
